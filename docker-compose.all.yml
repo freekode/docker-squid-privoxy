@@ -2,10 +2,10 @@ version: '3'
 services:
   squid:
     container_name: 'squid-proxy'
-    build: ./squid/
+    image: sameersbn/squid
     restart: always
-    depends_on:
-      - privoxy
+    environment:
+      - SQUID_CACHE_DIR=/var/spool/squid/cache
     ports:
       - 13128:3128
     volumes:

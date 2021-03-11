@@ -1,0 +1,12 @@
+version: '3'
+services:
+  squid:
+    container_name: 'squid-proxy'
+    image: sameersbn/squid
+    restart: always
+    environment:
+      - SQUID_CACHE_DIR=/var/spool/squid/cache
+    ports:
+      - 13128:3128
+    volumes:
+      - ./squid/squid.conf:/etc/squid/squid.conf
